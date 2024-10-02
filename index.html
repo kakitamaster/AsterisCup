@@ -20,10 +20,12 @@
         nav ul {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se ajusten */
+            justify-content: center; /* Centra los elementos */
         }
         nav ul li {
-            display: inline;
-            margin: 0 15px;
+            margin: 0 10px; /* Reduce el margen para móviles */
         }
         nav a {
             color: #fff;
@@ -77,6 +79,31 @@
         .coach {
             margin-top: 10px;
             font-weight: bold;
+        }
+
+        /* Media Queries para Pantallas Pequeñas */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column; /* Cambia la dirección a columna en móviles */
+                align-items: center; /* Centra los elementos */
+            }
+
+            nav ul li {
+                margin: 5px 0; /* Espacio entre elementos en vertical */
+            }
+
+            main {
+                padding: 10px; /* Reduce el padding en móviles */
+            }
+
+            .fase, .equipo {
+                padding: 15px; /* Aumenta el padding para que sea más fácil de tocar */
+            }
+
+            .jugador, .capitan {
+                flex-direction: column; /* Hace que los jugadores se apilen */
+                align-items: flex-start; /* Alinea a la izquierda */
+            }
         }
     </style>
 </head>
@@ -253,3 +280,4 @@
     </script>
 </body>
 </html>
+
