@@ -76,11 +76,9 @@
             justify-content: space-between;
             align-items: center;
         }
-        .match {
+        .coach {
             margin-top: 10px;
-            padding: 10px;
-            background: #e9ecef;
-            border-radius: 5px;
+            font-weight: bold;
         }
         .resultado {
             margin-top: 10px;
@@ -89,11 +87,6 @@
         .resultado input {
             width: 40px;
             text-align: center;
-        }
-        .partido {
-            display: none;
-            margin-top: 10px;
-            padding-left: 20px;
         }
     </style>
 </head>
@@ -170,65 +163,23 @@
             <div class="fase" onclick="toggleJugadores('fase2')">
                 <h3>Cuartos de Final</h3>
                 <div class="jugadores" id="fase2">
-                    <div class="partido" onclick="togglePartido('partido1')">
-                        <div class="match">Ganador 1 vs. Ganador 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
-                        <div class="partido" id="partido1">
-                            <div>Jugadores de Ganador 1: Jugador A1, Jugador A2, Jugador A3</div>
-                            <div>Jugadores de Ganador 2: Jugador B1, Jugador B2, Jugador B3</div>
-                        </div>
-                    </div>
-                    <div class="partido" onclick="togglePartido('partido2')">
-                        <div class="match">Ganador 3 vs. Ganador 4 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
-                        <div class="partido" id="partido2">
-                            <div>Jugadores de Ganador 3: Jugador C1, Jugador C2, Jugador C3</div>
-                            <div>Jugadores de Ganador 4: Jugador D1, Jugador D2, Jugador D3</div>
-                        </div>
-                    </div>
-                    <div class="partido" onclick="togglePartido('partido3')">
-                        <div class="match">Ganador 5 vs. Ganador 6 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
-                        <div class="partido" id="partido3">
-                            <div>Jugadores de Ganador 5: Jugador E1, Jugador E2, Jugador E3</div>
-                            <div>Jugadores de Ganador 6: Jugador F1, Jugador F2, Jugador F3</div>
-                        </div>
-                    </div>
-                    <div class="partido" onclick="togglePartido('partido4')">
-                        <div class="match">Ganador 7 vs. Ganador 8 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
-                        <div class="partido" id="partido4">
-                            <div>Jugadores de Ganador 7: Jugador G1, Jugador G2, Jugador G3</div>
-                            <div>Jugadores de Ganador 8: Jugador H1, Jugador H2, Jugador H3</div>
-                        </div>
-                    </div>
+                    <div class="equipo">Ganador 1 vs. Ganador 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador 3 vs. Ganador 4 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador 5 vs. Ganador 6 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador 7 vs. Ganador 8 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
                 </div>
             </div>
             <div class="fase" onclick="toggleJugadores('fase3')">
                 <h3>Semifinales</h3>
                 <div class="jugadores" id="fase3">
-                    <div class="partido" onclick="togglePartido('partido5')">
-                        <div class="match">Ganador 1 vs. Ganador 3 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
-                        <div class="partido" id="partido5">
-                            <div>Jugadores de Ganador 1: Jugador A1, Jugador A2, Jugador A3</div>
-                            <div>Jugadores de Ganador 3: Jugador C1, Jugador C2, Jugador C3</div>
-                        </div>
-                    </div>
-                    <div class="partido" onclick="togglePartido('partido6')">
-                        <div class="match">Ganador 2 vs. Ganador 4 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
-                        <div class="partido" id="partido6">
-                            <div>Jugadores de Ganador 2: Jugador B1, Jugador B2, Jugador B3</div>
-                            <div>Jugadores de Ganador 4: Jugador D1, Jugador D2, Jugador D3</div>
-                        </div>
-                    </div>
+                    <div class="equipo">Ganador de Cuartos 1 vs. Ganador de Cuartos 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador de Cuartos 3 vs. Ganador de Cuartos 4 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
                 </div>
             </div>
             <div class="fase" onclick="toggleJugadores('fase4')">
                 <h3>Final</h3>
                 <div class="jugadores" id="fase4">
-                    <div class="partido" onclick="togglePartido('partido7')">
-                        <div class="match">Ganador Semifinal 1 vs. Ganador Semifinal 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
-                        <div class="partido" id="partido7">
-                            <div>Jugadores de Ganador Semifinal 1: Jugador A1, Jugador A2, Jugador A3</div>
-                            <div>Jugadores de Ganador Semifinal 2: Jugador B1, Jugador B2, Jugador B3</div>
-                        </div>
-                    </div>
+                    <div class="equipo">Ganador de Semifinales 1 vs. Ganador de Semifinales 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
                 </div>
             </div>
         </div>
@@ -283,12 +234,8 @@
             const jugadores = document.getElementById(equipoId);
             jugadores.style.display = jugadores.style.display === 'block' ? 'none' : 'block';
         }
-
-        function togglePartido(partidoId) {
-            const partido = document.getElementById(partidoId);
-            partido.style.display = partido.style.display === 'block' ? 'none' : 'block';
-        }
     </script>
 </body>
 </html>
+
 
