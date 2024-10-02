@@ -150,14 +150,10 @@
             <div class="fase" onclick="toggleJugadores('fase1')">
                 <h3>Fase de Grupos</h3>
                 <div class="jugadores" id="fase1">
-                    <div class="equipo">Equipo A</div>
-                    <div class="equipo">Equipo B</div>
-                    <div class="equipo">Equipo C</div>
-                    <div class="equipo">Equipo D</div>
-                    <div class="equipo">Equipo E</div>
-                    <div class="equipo">Equipo F</div>
-                    <div class="equipo">Equipo G</div>
-                    <div class="equipo">Equipo H</div>
+                    <div class="equipo">Equipo A vs. Equipo B <span class="resultado">Resultado: <input type="number" min="0" max="10" placeholder="G" /></span></div>
+                    <div class="equipo">Equipo C vs. Equipo D <span class="resultado">Resultado: <input type="number" min="0" max="10" placeholder="G" /></span></div>
+                    <div class="equipo">Equipo E vs. Equipo F <span class="resultado">Resultado: <input type="number" min="0" max="10" placeholder="G" /></span></div>
+                    <div class="equipo">Equipo G vs. Equipo H <span class="resultado">Resultado: <input type="number" min="0" max="10" placeholder="G" /></span></div>
                 </div>
             </div>
             <div class="fase" onclick="toggleJugadores('fase2')">
@@ -208,7 +204,66 @@
                     <div class="jugador">Jugador B5</div>
                 </div>
             </div>
-            <!-- Añadir más equipos según sea necesario -->
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoC')">
+                <h3>Equipo C</h3>
+                <div class="jugadores" id="equipoC">
+                    <div class="capitan">Capitán: Jugador C1</div>
+                    <div class="jugador">Jugador C2</div>
+                    <div class="jugador">Jugador C3</div>
+                    <div class="jugador">Jugador C4</div>
+                    <div class="jugador">Jugador C5</div>
+                </div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoD')">
+                <h3>Equipo D</h3>
+                <div class="jugadores" id="equipoD">
+                    <div class="capitan">Capitán: Jugador D1</div>
+                    <div class="jugador">Jugador D2</div>
+                    <div class="jugador">Jugador D3</div>
+                    <div class="jugador">Jugador D4</div>
+                    <div class="jugador">Jugador D5</div>
+                </div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoE')">
+                <h3>Equipo E</h3>
+                <div class="jugadores" id="equipoE">
+                    <div class="capitan">Capitán: Jugador E1</div>
+                    <div class="jugador">Jugador E2</div>
+                    <div class="jugador">Jugador E3</div>
+                    <div class="jugador">Jugador E4</div>
+                    <div class="jugador">Jugador E5</div>
+                </div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoF')">
+                <h3>Equipo F</h3>
+                <div class="jugadores" id="equipoF">
+                    <div class="capitan">Capitán: Jugador F1</div>
+                    <div class="jugador">Jugador F2</div>
+                    <div class="jugador">Jugador F3</div>
+                    <div class="jugador">Jugador F4</div>
+                    <div class="jugador">Jugador F5</div>
+                </div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoG')">
+                <h3>Equipo G</h3>
+                <div class="jugadores" id="equipoG">
+                    <div class="capitan">Capitán: Jugador G1</div>
+                    <div class="jugador">Jugador G2</div>
+                    <div class="jugador">Jugador G3</div>
+                    <div class="jugador">Jugador G4</div>
+                    <div class="jugador">Jugador G5</div>
+                </div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoH')">
+                <h3>Equipo H</h3>
+                <div class="jugadores" id="equipoH">
+                    <div class="capitan">Capitán: Jugador H1</div>
+                    <div class="jugador">Jugador H2</div>
+                    <div class="jugador">Jugador H3</div>
+                    <div class="jugador">Jugador H4</div>
+                    <div class="jugador">Jugador H5</div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -237,5 +292,6 @@
     </script>
 </body>
 </html>
+
 
 
