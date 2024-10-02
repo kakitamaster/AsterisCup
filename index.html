@@ -84,6 +84,10 @@
             margin-top: 10px;
             font-weight: bold;
         }
+        .resultado input {
+            width: 40px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -159,23 +163,23 @@
             <div class="fase" onclick="toggleJugadores('fase2')">
                 <h3>Cuartos de Final</h3>
                 <div class="jugadores" id="fase2">
-                    <div class="equipo">Ganador 1 vs. Ganador 2 <span class="resultado">Resultado: <input type="text" placeholder="Gana..." /></span></div>
-                    <div class="equipo">Ganador 3 vs. Ganador 4 <span class="resultado">Resultado: <input type="text" placeholder="Gana..." /></span></div>
-                    <div class="equipo">Ganador 5 vs. Ganador 6 <span class="resultado">Resultado: <input type="text" placeholder="Gana..." /></span></div>
-                    <div class="equipo">Ganador 7 vs. Ganador 8 <span class="resultado">Resultado: <input type="text" placeholder="Gana..." /></span></div>
+                    <div class="equipo">Ganador 1 vs. Ganador 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador 3 vs. Ganador 4 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador 5 vs. Ganador 6 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador 7 vs. Ganador 8 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
                 </div>
             </div>
             <div class="fase" onclick="toggleJugadores('fase3')">
                 <h3>Semifinales</h3>
                 <div class="jugadores" id="fase3">
-                    <div class="equipo">Ganador de Cuartos 1 vs. Ganador de Cuartos 2 <span class="resultado">Resultado: <input type="text" placeholder="Gana..." /></span></div>
-                    <div class="equipo">Ganador de Cuartos 3 vs. Ganador de Cuartos 4 <span class="resultado">Resultado: <input type="text" placeholder="Gana..." /></span></div>
+                    <div class="equipo">Ganador de Cuartos 1 vs. Ganador de Cuartos 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
+                    <div class="equipo">Ganador de Cuartos 3 vs. Ganador de Cuartos 4 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
                 </div>
             </div>
             <div class="fase" onclick="toggleJugadores('fase4')">
                 <h3>Final</h3>
                 <div class="jugadores" id="fase4">
-                    <div class="equipo">Ganador de Semifinales 1 vs. Ganador de Semifinales 2 <span class="resultado">Resultado: <input type="text" placeholder="Gana..." /></span></div>
+                    <div class="equipo">Ganador de Semifinales 1 vs. Ganador de Semifinales 2 <span class="resultado">Resultado: <input type="number" min="0" max="1" placeholder="G" /></span></div>
                 </div>
             </div>
         </div>
@@ -187,91 +191,24 @@
             <div class="equipo" onclick="toggleJugadoresEquipo('equipoA')">
                 <h3>Equipo A</h3>
                 <div class="jugadores" id="equipoA">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="capitan">Capitán: Jugador A1</div>
+                    <div class="jugador">Jugador A2</div>
+                    <div class="jugador">Jugador A3</div>
+                    <div class="jugador">Jugador A4</div>
+                    <div class="jugador">Jugador A5</div>
                 </div>
-                <div class="coach">Coach: Nombre del Coach</div>
             </div>
             <div class="equipo" onclick="toggleJugadoresEquipo('equipoB')">
                 <h3>Equipo B</h3>
                 <div class="jugadores" id="equipoB">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="capitan">Capitán: Jugador B1</div>
+                    <div class="jugador">Jugador B2</div>
+                    <div class="jugador">Jugador B3</div>
+                    <div class="jugador">Jugador B4</div>
+                    <div class="jugador">Jugador B5</div>
                 </div>
-                <div class="coach">Coach: Nombre del Coach</div>
             </div>
-            <div class="equipo" onclick="toggleJugadoresEquipo('equipoC')">
-                <h3>Equipo C</h3>
-                <div class="jugadores" id="equipoC">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                </div>
-                <div class="coach">Coach: Nombre del Coach</div>
-            </div>
-            <div class="equipo" onclick="toggleJugadoresEquipo('equipoD')">
-                <h3>Equipo D</h3>
-                <div class="jugadores" id="equipoD">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                </div>
-                <div class="coach">Coach: Nombre del Coach</div>
-            </div>
-            <div class="equipo" onclick="toggleJugadoresEquipo('equipoE')">
-                <h3>Equipo E</h3>
-                <div class="jugadores" id="equipoE">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                </div>
-                <div class="coach">Coach: Nombre del Coach</div>
-            </div>
-            <div class="equipo" onclick="toggleJugadoresEquipo('equipoF')">
-                <h3>Equipo F</h3>
-                <div class="jugadores" id="equipoF">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                </div>
-                <div class="coach">Coach: Nombre del Coach</div>
-            </div>
-            <div class="equipo" onclick="toggleJugadoresEquipo('equipoG')">
-                <h3>Equipo G</h3>
-                <div class="jugadores" id="equipoG">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                </div>
-                <div class="coach">Coach: Nombre del Coach</div>
-            </div>
-            <div class="equipo" onclick="toggleJugadoresEquipo('equipoH')">
-                <h3>Equipo H</h3>
-                <div class="jugadores" id="equipoH">
-                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
-                </div>
-                <div class="coach">Coach: Nombre del Coach</div>
-            </div>
+            <!-- Añadir más equipos según sea necesario -->
         </div>
     </main>
 
@@ -280,33 +217,24 @@
     </footer>
 
     <script>
-        function showSection(sectionId) {
+        function showSection(section) {
             const sections = document.querySelectorAll('main');
-            sections.forEach(section => {
-                section.classList.remove('active');
+            sections.forEach((sec) => {
+                sec.classList.remove('active');
             });
-
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active');
+            document.getElementById(section).classList.add('active');
         }
 
         function toggleJugadores(faseId) {
             const jugadores = document.getElementById(faseId);
-            if (jugadores.style.display === "none" || !jugadores.style.display) {
-                jugadores.style.display = "block";
-            } else {
-                jugadores.style.display = "none";
-            }
+            jugadores.style.display = jugadores.style.display === 'block' ? 'none' : 'block';
         }
 
         function toggleJugadoresEquipo(equipoId) {
             const jugadores = document.getElementById(equipoId);
-            if (jugadores.style.display === "none" || !jugadores.style.display) {
-                jugadores.style.display = "block";
-            } else {
-                jugadores.style.display = "none";
-            }
+            jugadores.style.display = jugadores.style.display === 'block' ? 'none' : 'block';
         }
     </script>
 </body>
 </html>
+
