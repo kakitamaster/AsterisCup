@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteris Cup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+            display: none; /* Ocultar todas las secciones por defecto */
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .active {
+            display: block; /* Mostrar solo la sección activa */
+        }
+        .fases, .equipos {
+            margin-top: 20px;
+        }
+        .fase, .equipo {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .fase h3, .equipo h3 {
+            margin: 0;
+        }
+        .jugadores {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .jugador, .capitan {
+            background: #e7e7e7;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .coach {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Asteris Cup</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio" onclick="showSection('inicio')">Inicio</a></li>
+                <li><a href="#contacto" onclick="showSection('contacto')">Contacto</a></li>
+                <li><a href="#inscripcion" onclick="showSection('inscripcion')">Inscripción de Equipo</a></li>
+                <li><a href="#calendario" onclick="showSection('calendario')">Calendario del Torneo</a></li>
+                <li><a href="#premio" onclick="showSection('premio')">Premio</a></li>
+                <li><a href="#formato" onclick="showSection('formato')">Formato del Torneo</a></li>
+                <li><a href="#fases" onclick="showSection('fases')">Fases del Torneo</a></li>
+                <li><a href="#equipos" onclick="showSection('equipos')">Equipos del Torneo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="inicio" class="active">
+        <h2>Bienvenido a la Asteris Cup</h2>
+        <p>¡Prepárate para el torneo más emocionante de League of Legends!</p>
+    </main>
+
+    <main id="contacto">
+        <h2>Contacto</h2>
+        <p>Para más información, contáctanos en: <a href="mailto:bypablosky007@gmail.com">bypablosky007@gmail.com</a></p>
+    </main>
+
+    <main id="inscripcion">
+        <h2>Inscripción de Equipo</h2>
+        <form id="inscripcion-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="text" name="nombreEquipo" placeholder="Nombre del Equipo" required>
+            <input type="text" name="nombreCapitan" placeholder="Nombre del Capitán" required>
+            <input type="email" name="correo" placeholder="Correo Electrónico" required>
+            <button type="submit">Inscribirse</button>
+        </form>
+    </main>
+
+    <main id="calendario">
+        <h2>Calendario del Torneo</h2>
+        <p>Fecha del torneo: 20 de noviembre de 2023.</p>
+        <p>Partidos eliminatorios: 20-25 de noviembre.</p>
+        <p>Final: 27 de noviembre.</p>
+    </main>
+
+    <main id="premio">
+        <h2>Premio</h2>
+        <p>El equipo ganador recibirá un premio de $500 y un trofeo.</p>
+    </main>
+
+    <main id="formato">
+        <h2>Formato del Torneo</h2>
+        <p>El torneo se jugará en formato de eliminación directa.</p>
+    </main>
+
+    <main id="fases">
+        <h2>Fases del Torneo</h2>
+        <div class="fases">
+            <div class="fase" onclick="toggleJugadores('fase1')">
+                <h3>Fase de Grupos</h3>
+                <div class="jugadores" id="fase1">
+                    <div class="equipo">Equipo A</div>
+                    <div class="equipo">Equipo B</div>
+                    <div class="equipo">Equipo C</div>
+                    <div class="equipo">Equipo D</div>
+                </div>
+            </div>
+            <div class="fase" onclick="toggleJugadores('fase2')">
+                <h3>Cuartos de Final</h3>
+                <div class="jugadores" id="fase2">
+                    <div class="equipo">Ganador Grupo A vs. 2º Grupo B</div>
+                    <div class="equipo">Ganador Grupo C vs. 2º Grupo D</div>
+                </div>
+            </div>
+            <div class="fase" onclick="toggleJugadores('fase3')">
+                <h3>Semifinales</h3>
+                <div class="jugadores" id="fase3">
+                    <div class="equipo">Ganador de Cuartos 1 vs. Ganador de Cuartos 2</div>
+                </div>
+            </div>
+            <div class="fase" onclick="toggleJugadores('fase4')">
+                <h3>Final</h3>
+                <div class="jugadores" id="fase4">
+                    <div class="equipo">Ganador de Semifinales</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="equipos">
+        <h2>Equipos del Torneo</h2>
+        <div class="equipos">
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoA')">
+                <h3>Equipo A</h3>
+                <div class="jugadores" id="equipoA">
+                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                </div>
+                <div class="coach">Coach: Nombre del Coach</div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoB')">
+                <h3>Equipo B</h3>
+                <div class="jugadores" id="equipoB">
+                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                </div>
+                <div class="coach">Coach: Nombre del Coach</div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoC')">
+                <h3>Equipo C</h3>
+                <div class="jugadores" id="equipoC">
+                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                </div>
+                <div class="coach">Coach: Nombre del Coach</div>
+            </div>
+            <div class="equipo" onclick="toggleJugadoresEquipo('equipoD')">
+                <h3>Equipo D</h3>
+                <div class="jugadores" id="equipoD">
+                    <div class="capitan">Capitán: Jugador 1 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 2 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 3 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 4 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                    <div class="jugador">Jugador 5 <a href="https://www.leagueoflegends.com/es-es/" target="_blank">Perfil</a></div>
+                </div>
+                <div class="coach">Coach: Nombre del Coach</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Asteris Cup. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+
+        function toggleJugadores(faseId) {
+            const jugadores = document.getElementById(faseId);
+            if (jugadores.style.display === "none" || !jugadores.style.display) {
+                jugadores.style.display = "block";
+            } else {
+                jugadores.style.display = "none";
+            }
+        }
+
+        function toggleJugadoresEquipo(equipoId) {
+            const jugadores = document.getElementById(equipoId);
+            if (jugadores.style.display === "none" || !jugadores.style.display) {
+                jugadores.style.display = "block";
+            } else {
+                jugadores.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
