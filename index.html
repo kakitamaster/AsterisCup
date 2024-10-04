@@ -6,13 +6,14 @@
     <title>Asteris Cup - Torneos de LoL</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             background-color: #121212;
             color: #ffffff;
         }
         h1, h2, h3 {
-            color: #00ff00; /* Verde característico de LoL */
+            color: #00ff00;
         }
         footer {
             background-color: #1a1a1a;
@@ -25,6 +26,29 @@
         .social-icons a {
             color: #00ff00;
             margin: 0 10px;
+        }
+        .news-card {
+            background-color: #1f1f1f;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 200px;
+            overflow-y: scroll;
+            background-color: #222;
+            color: #fff;
+        }
+        .chatbox div {
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -54,10 +78,25 @@
                     <a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats">Estadísticas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="fases-tab" data-toggle="tab" href="#fases">Fases del Torneo</a>
+                    <a class="nav-link" id="clasificaciones-tab" data-toggle="tab" href="#clasificaciones">Clasificaciones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="inscripcion-tab" data-toggle="tab" href="#inscripcion">Inscripción</a>
+                    <a class="nav-link" id="noticias-tab" data-toggle="tab" href="#noticias">Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="recursos-tab" data-toggle="tab" href="#recursos">Recursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="galeria-tab" data-toggle="tab" href="#galeria">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="chat-tab" data-toggle="tab" href="#chat">Chat en Vivo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="streaming-tab" data-toggle="tab" href="#streaming">Streaming</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="feedback-tab" data-toggle="tab" href="#feedback">Feedback</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="contacto-tab" data-toggle="tab" href="#contacto">Contacto</a>
@@ -88,18 +127,6 @@
                     <li class="nav-item">
                         <a class="nav-link" id="equipo4-tab" data-toggle="tab" href="#equipo4" role="tab" aria-controls="equipo4" aria-selected="false">Equipo 4</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="equipo5-tab" data-toggle="tab" href="#equipo5" role="tab" aria-controls="equipo5" aria-selected="false">Equipo 5</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="equipo6-tab" data-toggle="tab" href="#equipo6" role="tab" aria-controls="equipo6" aria-selected="false">Equipo 6</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="equipo7-tab" data-toggle="tab" href="#equipo7" role="tab" aria-controls="equipo7" aria-selected="false">Equipo 7</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="equipo8-tab" data-toggle="tab" href="#equipo8" role="tab" aria-controls="equipo8" aria-selected="false">Equipo 8</a>
-                    </li>
                 </ul>
 
                 <div class="tab-content" id="teamTabContent">
@@ -113,138 +140,208 @@
                             <li>Jugador 5 - <a href="https://www.op.gg/summoner/userName=Jugador5" target="_blank">OPGG</a></li>
                         </ul>
                     </div>
-                    <!-- Repite la estructura para los otros equipos -->
-                    <!-- ... -->
+                    <div class="tab-pane fade" id="equipo2" role="tabpanel" aria-labelledby="equipo2-tab">
+                        <h3>Equipo 2</h3>
+                        <ul>
+                            <li>Jugador 1 - <a href="https://www.op.gg/summoner/userName=Jugador1" target="_blank">OPGG</a></li>
+                            <li>Jugador 2 - <a href="https://www.op.gg/summoner/userName=Jugador2" target="_blank">OPGG</a></li>
+                            <li>Jugador 3 - <a href="https://www.op.gg/summoner/userName=Jugador3" target="_blank">OPGG</a></li>
+                            <li>Jugador 4 - <a href="https://www.op.gg/summoner/userName=Jugador4" target="_blank">OPGG</a></li>
+                            <li>Jugador 5 - <a href="https://www.op.gg/summoner/userName=Jugador5" target="_blank">OPGG</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="equipo3" role="tabpanel" aria-labelledby="equipo3-tab">
+                        <h3>Equipo 3</h3>
+                        <ul>
+                            <li>Jugador 1 - <a href="https://www.op.gg/summoner/userName=Jugador1" target="_blank">OPGG</a></li>
+                            <li>Jugador 2 - <a href="https://www.op.gg/summoner/userName=Jugador2" target="_blank">OPGG</a></li>
+                            <li>Jugador 3 - <a href="https://www.op.gg/summoner/userName=Jugador3" target="_blank">OPGG</a></li>
+                            <li>Jugador 4 - <a href="https://www.op.gg/summoner/userName=Jugador4" target="_blank">OPGG</a></li>
+                            <li>Jugador 5 - <a href="https://www.op.gg/summoner/userName=Jugador5" target="_blank">OPGG</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="equipo4" role="tabpanel" aria-labelledby="equipo4-tab">
+                        <h3>Equipo 4</h3>
+                        <ul>
+                            <li>Jugador 1 - <a href="https://www.op.gg/summoner/userName=Jugador1" target="_blank">OPGG</a></li>
+                            <li>Jugador 2 - <a href="https://www.op.gg/summoner/userName=Jugador2" target="_blank">OPGG</a></li>
+                            <li>Jugador 3 - <a href="https://www.op.gg/summoner/userName=Jugador3" target="_blank">OPGG</a></li>
+                            <li>Jugador 4 - <a href="https://www.op.gg/summoner/userName=Jugador4" target="_blank">OPGG</a></li>
+                            <li>Jugador 5 - <a href="https://www.op.gg/summoner/userName=Jugador5" target="_blank">OPGG</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="quienes-somos" role="tabpanel" aria-labelledby="quienes-somos-tab">
                 <h2>Quiénes Somos</h2>
-                <p>La Asteris Cup es un torneo de League of Legends creado para fomentar la competencia y la diversión entre jugadores.</p>
+                <p>Somos una comunidad de jugadores apasionados por League of Legends. Nuestro objetivo es organizar torneos justos y emocionantes para todos los jugadores.</p>
             </div>
 
             <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
                 <h2>Estadísticas de Jugadores</h2>
                 <canvas id="playerStats" width="400" height="200"></canvas>
-            </div>
+                
+                <div class="table-responsive mt-4">
+                    <h3>Estadísticas de Jugadores</h3>
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>Jugador</th>
+                                <th>Kills</th>
+                                <th>Muertes</th>
+                                <th>Asistencias</th>
+                                <th>KDA</th>
+                                <th>CS</th>
+                                <th>Oro Ganado</th>
+                                <th>Tasa de Ganancias</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jugador A</td>
+                                <td>1000</td>
+                                <td>500</td>
+                                <td>200</td>
+                                <td>3.0</td>
+                                <td>300</td>
+                                <td>15000</td>
+                                <td>60%</td>
+                            </tr>
+                            <tr>
+                                <td>Jugador B</td>
+                                <td>800</td>
+                                <td>600</td>
+                                <td>300</td>
+                                <td>2.33</td>
+                                <td>280</td>
+                                <td>14000</td>
+                                <td>55%</td>
+                            </tr>
+                            <!-- Puedes añadir más jugadores aquí -->
+                        </tbody>
+                    </table>
+                </div>
 
-            <div class="tab-pane fade" id="fases" role="tabpanel" aria-labelledby="fases-tab">
-                <h2>Fases del Torneo</h2>
-                <ul class="nav nav-tabs" id="phaseTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="fase1-tab" data-toggle="tab" href="#fase1" role="tab" aria-controls="fase1" aria-selected="true">Fase de Grupos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="fase2-tab" data-toggle="tab" href="#fase2" role="tab" aria-controls="fase2" aria-selected="false">Eliminatorias</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="fase3-tab" data-toggle="tab" href="#fase3" role="tab" aria-controls="fase3" aria-selected="false">Final</a>
-                    </li>
-                </ul>
-
-                <div class="tab-content" id="phaseTabContent">
-                    <div class="tab-pane fade show active" id="fase1" role="tabpanel" aria-labelledby="fase1-tab">
-                        <h3>Fase de Grupos</h3>
-                        <table class="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th>Partido</th>
-                                    <th>Resultado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Equipo 1 vs Equipo 2</td>
-                                    <td>1-0</td>
-                                </tr>
-                                <!-- Otros partidos -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="fase2" role="tabpanel" aria-labelledby="fase2-tab">
-                        <h3>Eliminatorias</h3>
-                        <table class="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th>Partido</th>
-                                    <th>Resultado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ganador Fase 1 vs Ganador Fase 1</td>
-                                    <td>2-0</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="fase3" role="tabpanel" aria-labelledby="fase3-tab">
-                        <h3>Final</h3>
-                        <table class="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th>Partido</th>
-                                    <th>Resultado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ganador Eliminatorias vs Otro Equipo</td>
-                                    <td>3-2</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <button class="btn btn-info mt-3" onclick="showAdvancedStats()">Ver Estadísticas Avanzadas</button>
+                <div id="advancedStats" style="display:none;">
+                    <h4>Estadísticas Avanzadas</h4>
+                    <ul>
+                        <li><strong>Jugador A:</strong> 1000 Kills, 500 Muertes, 200 Asistencias, 3.0 KDA, 300 CS, 15000 Oro, 60% Win Rate</li>
+                        <li><strong>Jugador B:</strong> 800 Kills, 600 Muertes, 300 Asistencias, 2.33 KDA, 280 CS, 14000 Oro, 55% Win Rate</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="inscripcion" role="tabpanel" aria-labelledby="inscripcion-tab">
-                <h2>Inscripción</h2>
+            <div class="tab-pane fade" id="clasificaciones" role="tabpanel" aria-labelledby="clasificaciones-tab">
+                <h2>Clasificaciones</h2>
+                <p>Aquí se mostrarán las clasificaciones de los equipos y jugadores.</p>
+            </div>
+
+            <div class="tab-pane fade" id="noticias" role="tabpanel" aria-labelledby="noticias-tab">
+                <h2>Noticias</h2>
+                <div class="news-card">
+                    <h5>Noticia 1</h5>
+                    <p>Detalles sobre la noticia 1.</p>
+                </div>
+                <div class="news-card">
+                    <h5>Noticia 2</h5>
+                    <p>Detalles sobre la noticia 2.</p>
+                </div>
+                <!-- Añadir más noticias aquí -->
+            </div>
+
+            <div class="tab-pane fade" id="recursos" role="tabpanel" aria-labelledby="recursos-tab">
+                <h2>Recursos</h2>
+                <p>Enlaces a recursos útiles para jugadores.</p>
+            </div>
+
+            <div class="tab-pane fade" id="galeria" role="tabpanel" aria-labelledby="galeria-tab">
+                <h2>Galería</h2>
+                <div class="gallery">
+                    <img src="imagen1.jpg" alt="Imagen 1">
+                    <img src="imagen2.jpg" alt="Imagen 2">
+                    <img src="imagen3.jpg" alt="Imagen 3">
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
+                <h2>Chat en Vivo</h2>
+                <div class="chatbox" id="chatbox"></div>
+                <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+
+            <div class="tab-pane fade" id="streaming" role="tabpanel" aria-labelledby="streaming-tab">
+                <h2>Streaming</h2>
+                <p>Aquí se mostrarán los enlaces a los streams en vivo de las partidas.</p>
+            </div>
+
+            <div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+                <h2>Feedback</h2>
                 <form>
                     <div class="form-group">
-                        <label for="teamName">Nombre del Equipo</label>
-                        <input type="text" class="form-control" id="teamName" required>
+                        <label for="feedbackInput">Comentarios</label>
+                        <textarea class="form-control" id="feedbackInput" rows="3"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="playerNames">Nombres de Jugadores (separados por comas)</label>
-                        <input type="text" class="form-control" id="playerNames" required>
-                    </div>
-                    <button type="submit" class="btn btn-success">Inscribirse</button>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>
 
             <div class="tab-pane fade" id="contacto" role="tabpanel" aria-labelledby="contacto-tab">
                 <h2>Contacto</h2>
-                <p>Correo electrónico: contacto@asteriscup.com</p>
-                <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
+                <p>Email: contacto@asteriscup.com</p>
+                <p>Teléfono: +34 123 456 789</p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>© 2024 Asteris Cup - Todos los derechos reservados.</p>
+        <p>&copy; 2024 Asteris Cup. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Gráfico de ejemplo
-        const ctx = document.getElementById('playerStats').getContext('2d');
-        const playerStatsChart = new Chart(ctx, {
+        // Gráficos de Estadísticas
+        var ctx = document.getElementById('playerStats').getContext('2d');
+        var playerStatsChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Jugador 1', 'Jugador 2', 'Jugador 3', 'Jugador 4', 'Jugador 5'],
-                datasets: [{
-                    label: 'K/D Ratio',
-                    data: [3.5, 2.0, 4.0, 1.5, 3.0],
-                    backgroundColor: 'rgba(0, 255, 0, 0.5)',
-                }]
+                labels: ['Jugador A', 'Jugador B'],
+                datasets: [
+                    {
+                        label: 'Kills',
+                        data: [1000, 800],
+                        backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                        borderColor: 'rgba(0, 255, 0, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Muertes',
+                        data: [500, 600],
+                        backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                        borderColor: 'rgba(255, 0, 0, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Asistencias',
+                        data: [200, 300],
+                        backgroundColor: 'rgba(0, 0, 255, 0.5)',
+                        borderColor: 'rgba(0, 0, 255, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'KDA',
+                        data: [3.0, 2.33],
+                        backgroundColor: 'rgba(255, 255, 0, 0.5)',
+                        borderColor: 'rgba(255, 255, 0, 1)',
+                        borderWidth: 1
+                    }
+                ]
             },
             options: {
                 scales: {
@@ -254,6 +351,33 @@
                 }
             }
         });
+
+        // Chat en Vivo
+        function sendMessage() {
+            var input = document.getElementById('chatInput');
+            var chatbox = document.getElementById('chatbox');
+            if (input.value.trim() !== '') {
+                var message = document.createElement('div');
+                message.textContent = input.value;
+                chatbox.appendChild(message);
+                input.value = '';
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
+        }
+
+        // Mostrar estadísticas avanzadas
+        function showAdvancedStats() {
+            var advancedStats = document.getElementById('advancedStats');
+            advancedStats.style.display = advancedStats.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
     </script>
 </body>
 </html>
